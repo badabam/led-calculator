@@ -1,0 +1,5 @@
+semantic/
+node_modules/
+.idea/
+*.min.*
+dist/
