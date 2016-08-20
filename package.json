@@ -1,5 +1,5 @@
 {
-  "name": "Elektrotechnik Jakobi LED Rechner",
+  "name": "jakobi-led-calculator",
   "version": "0.0.1",
   "private": true,
   "description": "",
@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "less": "lessc less/styles.less dist/styles.css",
     "minify": "cleancss -o dist/styles.min.css dist/styles.css",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "clean": "rimraf 'dist'"
   },
   "watch": {
     "less": "less/*.less",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "clean-css": "^3.4.19",
-    "npm-watch": "^0.1.6"
+    "npm-watch": "^0.1.6",
+    "rimraf": "^2.5.4"
   }
 }

@@ -17,21 +17,33 @@
       <h1 class="main-heading">LED Strom-Spar-Rechner</h1>
     </div>
   </header>
-  <main class="ui container grid">
-    <form class="ui form mt-xl three wide column">
-      <div class="field">
-        <label for="power">Leistung</label>
-        <div class="ui right labeled input">
-          <input type="number" id="power" name="power" placeholder="58" value="58">
-          <div class="ui basic label">Watt</div>
+  <main class="ui container">
+    <form class="ui form mt-xl" method="">
+      <div class="ui three column grid">
+        <div class="column fields">
+          <div class="inline fields">
+            <label for="amount">Anzahl</label>
+            <div class="ui right labeled input">
+              <input type="number" id="amount" name="amount" placeholder="50" value="50">
+              <div class="ui basic label">Stück</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="time">Brenndauer</label>
+            <div class="ui right labeled input">
+            <input type="number" id="time" name="time" placeholder="6" value="6">
+              <div class="ui basic label">Stunden/Tag</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="days">Arbeitstage</label>
+            <div class="ui right labeled input">
+              <input type="number" id="days" name="days" placeholder="254" value="254">
+              <div class="ui basic label">im Jahr</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <label for="cost">Anschaffungskosten</label>
-        <div class="ui right labeled input">
-          <input type="number" id="cost" name="cost" placeholder="1.80">
-          <div class="ui basic label">€</div>
-        </div>
+
       </div>
     </form>
   </main>
