@@ -12,16 +12,7 @@
     "clean": "rimraf 'dist'"
   },
   "watch": {
-    "less": "less/*.less",
-    "minify": {
-      "patterns": [
-        "dist"
-      ],
-      "extensions": [
-        "css"
-      ],
-      "ignore": "dist/*.min.css"
-    }
+    "less": "{less}/*.less"
   },
   "author": "Jeremias Erbs <jerry@badabam.de> (http://www.badabam.de/)",
   "license": "UNLICENSED",

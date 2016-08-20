@@ -20,8 +20,9 @@
   <main class="ui container">
     <form class="ui form mt-xl" method="">
       <div class="ui three column grid">
-        <div class="column fields">
-          <div class="inline fields">
+        <!-- your data -->
+        <div class="column">
+          <div class="field">
             <label for="amount">Anzahl</label>
             <div class="ui right labeled input">
               <input type="number" id="amount" name="amount" placeholder="50" value="50">
@@ -31,7 +32,7 @@
           <div class="field">
             <label for="time">Brenndauer</label>
             <div class="ui right labeled input">
-            <input type="number" id="time" name="time" placeholder="6" value="6">
+              <input type="number" id="time" name="time" placeholder="6" value="6">
               <div class="ui basic label">Stunden/Tag</div>
             </div>
           </div>
@@ -39,11 +40,66 @@
             <label for="days">Arbeitstage</label>
             <div class="ui right labeled input">
               <input type="number" id="days" name="days" placeholder="254" value="254">
-              <div class="ui basic label">im Jahr</div>
+              <div class="ui basic label">Tage/Jahr</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="powerprice">Strompreis</label>
+            <div class="ui right labeled input">
+              <input type="number" id="powerprice" name="powerprice" placeholder="28" value="28">
+              <div class="ui basic label">Cent/kWh</div>
             </div>
           </div>
         </div>
 
+      <!-- old lamp -->
+      <div class="column">
+          <div class="field">
+            <label for="old-power">Leistung</label>
+            <div class="ui right labeled input">
+              <input type="number" id="old-power" name="old-power" placeholder="58" value="58">
+              <div class="ui basic label">Watt</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="old-initialcost">Anschaffungskosten</label>
+            <div class="ui right labeled input">
+              <input type="number" id="old-initialcost" name="old-initialcost" placeholder="1.80" value="1.80">
+              <div class="ui basic label">Euro</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="old-endurance">Lebensdauer</label>
+            <div class="ui right labeled input">
+              <input type="number" id="old-endurance" name="old-endurance" placeholder="15" value="15">
+              <div class="ui basic label">&times; 1000 Stunden</div>
+            </div>
+          </div>
+        </div>
+        <!-- new lamp -->
+      <div class="column">
+          <div class="field">
+            <label for="new-power">Leistung</label>
+            <div class="ui right labeled input">
+              <input type="number" id="new-power" name="new-power" placehnewer="25" value="25">
+              <div class="ui basic label">Watt</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="new-initialcost">Anschaffungskosten</label>
+            <div class="ui right labeled input">
+              <input type="number" id="new-initialcost" name="new-initialcost" placehnewer="31.10" value="31.10">
+              <div class="ui basic label">Euro</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="new-endurance">Lebensdauer</label>
+            <div class="ui right labeled input">
+              <input type="number" id="new-endurance" name="new-endurance" placeholder="40" value="40">
+              <div class="ui basic label">&times; 1000 Stunden</div>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   </main>
