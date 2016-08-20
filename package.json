@@ -1,25 +1,31 @@
 {
-  "name": "jakobi",
+  "name": "Elektrotechnik Jakobi LED Rechner",
   "version": "0.0.1",
+  "private": true,
   "description": "",
   "main": "index.html",
-  "watch": {
-    "less": "less/*.less",
-    "minify": {
-      "patterns": ["dist"],
-      "extensions": ["css"],
-      "ignore": "dist/*.min.css"
-    }
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "less": "lessc less/styles.less dist/styles.css",
     "minify": "cleancss -o dist/styles.min.css dist/styles.css",
     "watch": "npm-watch"
   },
+  "watch": {
+    "less": "less/*.less",
+    "minify": {
+      "patterns": [
+        "dist"
+      ],
+      "extensions": [
+        "css"
+      ],
+      "ignore": "dist/*.min.css"
+    }
+  },
   "author": "Jeremias Erbs <jerry@badabam.de> (http://www.badabam.de/)",
   "license": "UNLICENSED",
   "dependencies": {
+    "jquery": "^3.1.0",
     "semantic-ui": "^2.2.2"
   },
   "devDependencies": {
