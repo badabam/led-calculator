@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.html",
   "watch": {
-    "less": "less/*.less"
+    "less": "less/*.less",
+    "minify": {
+      "patterns": ["dist"],
+      "extensions": ["css"],
+      "ignore": "dist/*.min.css"
+    }
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "less": "lessc less/styles.less dist/styles.css",
+    "minify": "cleancss -o dist/styles.min.css dist/styles.css",
     "watch": "npm-watch"
   },
   "author": "Jeremias Erbs <jerry@badabam.de> (http://www.badabam.de/)",
@@ -17,6 +23,7 @@
     "semantic-ui": "^2.2.2"
   },
   "devDependencies": {
+    "clean-css": "^3.4.19",
     "npm-watch": "^0.1.6"
   }
 }
