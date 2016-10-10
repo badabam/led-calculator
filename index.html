@@ -46,17 +46,19 @@
             <label for="powerprice">Strompreis</label>
             <input type="number" id="powerprice" name="powerprice" placeholder="28" value="28">
           </div>
-          <div class="ui bottom attached primary button">
-          <i class="calculator icon"></i>
-          Jetzt berechnen
-        </div>
+          <div class="content field">
+            <div class="ui w100 pv-s primary button">
+              <i class="calculator icon"></i>
+              Jetzt berechnen
+            </div>
+          </div>
         </div>
         <!-- /your data -->
 
         <!-- old lamp -->
         <div class="ui card">
           <div class="content">
-            <h3 class="ui red header">Alte Lampe</h3>
+            <h3 class="ui grey header">Alte Lampe</h3>
           </div>
           <div class="content field">
             <div class="right floated meta">Watt</div>
@@ -73,12 +75,13 @@
             <label for="old-endurance">Lebensdauer</label>
             <input type="number" id="old-endurance" name="old-endurance" placeholder="15" value="15">
           </div>
-          <div class="ui bottom attached visible negative message field">
+          <div class="ui bottom attached visible message field">
             <label class="left floated" for="old-consumption">Energieverbrauch in 1.000 h <span class="ml-xxs meta">laut Hersteller</span></label>
             <div class="right floated meta">kWh</div>
             <input type="number" id="old-consumption" name="old-consumption" placeholder="68" value="68">
           </div>
         </div>
+        <!-- /old lamp -->
 
         <!-- new lamp -->
         <div class="ui card">
@@ -106,6 +109,7 @@
             <input type="number" id="new-consumption" name="new-consumption" placeholder="25" value="25">
           </div>
         </div>
+        <!-- /new lamp -->
       </div>
     </form>
   </main>
