@@ -115,24 +115,50 @@
       </div>
       <!-- /cards -->
     </form>
-    <div class="ui segment equal width grid">
-      <div class="column">
-        <h3 class="ui header">Direktvergleich</h3>
-      </div>
-      <div class="pl-s column">
-        <h3 class="ui grey header">Alte Lampe</h3>
-        <ul class="ui list">
-          <li class="item"><div class="right aligned description">Foo</div></li>
-          <li class="item">bar</li>
-        </ul>
-      </div>
-      <div class="pl-m column">
-        <h3 class="ui green header">LED Lampe</h3>
-      </div>
+    <div class="ui segment mt-s">
+      <h3 class="ui header">Direktvergleich</h3>
+      <table class="ui celled fixed tablet stackable table">
+        <thead>
+          <tr>
+            <th>Herstellerangaben</th>
+            <th class="mobile hidden">Alte Lampe</th>
+            <th class="mobile hidden">LED Lampe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Energieverbrauch in 1000h</td>
+            <td>68 kWh</td>
+            <td>25 kWh</td>
+          </tr>
+          <tr>
+            <td>Täglicher Stromverbrauch</td>
+            <td>11,424 kWh</td>
+            <td>4,2 kWh</td>
+          </tr>
+          <tr>
+            <td>Tägliche Energiekosten</td>
+            <td>3,19872 Euro</td>
+            <td>1,176 Euro</td>
+          </tr>
+          <tr>
+            <td>Jährliche Energiekosten</td>
+            <td>812,47488 Euro</td>
+            <td>298,704 Euro</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
+    <div class="ui segment mt-s">
+      <h3 class="ui header">Ihre Ersparnis</h3>
+      <p>Ihre Ersparnis wärend der Lebensdauer der LED Lampe von <span>18,26</span> Jahren beträgt <span>9.383,94</span> Euro bei 6 Stunde(n) Brenndauer im täglichen Durchschnitt. Sie Investieren <span>870,80</span> € in LED Technik statt <span>134,40</span> Euro für <span>74,67</span> alte Leuchtmittel im Vergleich zur LED Laufzeit.</p>
+     <p>Sie sparen <span>202,27</span> Euro Cent pro Tag, was <span>513,77</span>Euro im Jahr bei <span>254</span> Arbeitstagen entspricht.</p>
+     <p>Nach <span>1,69</span> Jahren hat sich Ihre Investition in die neue LED Technik amortisiert.</p>
+  </div>
 
   </main>
+
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="semantic/dist/semantic.min.js"></script>
   <script src="script.js"></script>
