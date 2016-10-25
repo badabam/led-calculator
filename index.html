@@ -19,6 +19,7 @@
   </header>
   <main class="ui container">
     <form class="ui form mt-xl" method="">
+
       <!-- cards -->
       <div class="ui three stackable cards">
 
@@ -81,10 +82,6 @@
             <div class="right floated meta">kWh</div>
             <input type="number" id="old-consumption" name="old-consumption" placeholder="68" value="68">
           </div>
-          <div class="ui bottom attached center aligned visible message field">
-            Herstellerangaben anpassen
-            <i class="arrow right icon"></i>
-          </div>
         </div>
         <!-- /old lamp -->
 
@@ -113,21 +110,24 @@
             <div class="right floated meta">kWh</div>
             <input type="number" id="new-consumption" name="new-consumption" placeholder="25" value="25">
           </div>
-          <div class="ui bottom attached left aligned visible message field">
-            <div class="ui form inline fields">
-            <div class="field">
-              <label>
-                Jahresverbrauch <input type="text" disabled value="58">
-              </label>
-            </div>
-            </div>
-          </div>
         </div>
         <!-- /new lamp -->
       </div>
       <!-- /cards -->
-
     </form>
+    <div class="ui segment equal width grid">
+      <div class="column">
+        <h3 class="ui header">Direktvergleich</h3>
+      </div>
+      <div class="pl-s column">
+        <h3 class="ui grey header">Alte Lampe</h3>
+      </div>
+      <div class="pl-m column">
+        <h3 class="ui green header">LED Lampe</h3>
+      </div>
+    </div>
+
+
   </main>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="semantic/dist/semantic.min.js"></script>
