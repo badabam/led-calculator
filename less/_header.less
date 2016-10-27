@@ -16,20 +16,29 @@ body > header {
   background-color: #043079;
 }
 body > header .container {
+  align-items: center;
   display: flex;
   height: 150px;
   margin: 0 auto;
   max-width: 1170px;
   padding: 0 18px;
+  @media screen and (max-width: 450px) {
+   flex-direction: column;
+   padding: 18px;
+   justify-content: space-around;
+  }
 }
 body > header .logo {
   height: 60px;
-  margin-top: 41px;
   width: auto;
 }
 body > header .main-heading {
   animation: 1.5s 1s heading ease-out both;
   color: white;
-  font-size: 3em;
-  margin: 43px 0 0 40px;
+  font-size: 4.8vw;
+  margin: 0 0 0 40px;
+
+  @media screen and (max-width: 450px) {
+   margin: 0;
+  }
 }
