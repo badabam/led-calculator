@@ -26,12 +26,12 @@
         <!-- your data -->
         <div class="ui card">
           <div class="content">
-            <h3 class="ui blue header">Ihre Anforderungen</h3>
+            <h3 class="ui blue header">Anzahl und Einsatzzeit</h3>
           </div>
           <div class="content field">
             <div class="right floated meta">Stück</div>
             <label for="amount">Anzahl</label>
-            <input type="number" id="amount" name="amount" placeholder="50" value="50">
+            <input type="number" id="amount" name="amount" placeholder="28" value="28">
           </div>
           <div class="content field">
             <div class="right floated meta">Stunden/Tag</div>
@@ -65,22 +65,22 @@
           <div class="content field">
             <div class="right floated meta">Watt</div>
             <label for="old-power">Leistung</label>
-            <input type="number" id="old-power" name="old-power" placeholder="58" value="58">
+            <input type="number" id="old_power" name="old-power" placeholder="58" value="58">
           </div>
           <div class="content field">
             <div class="right floated meta">Euro</div>
             <label for="old-initialcost">Anschaffungskosten</label>
-            <input type="number" id="old-initialcost" name="old-initialcost" placeholder="1.80" value="1.80">
+            <input type="number" id="old_initialcost" name="old-initialcost" placeholder="1.80" value="1.80">
           </div>
           <div class="content field">
-            <div class="right floated meta">&times; 1000 Stunden</div>
+            <div class="right floated meta">Stunden</div>
             <label for="old-endurance">Lebensdauer</label>
-            <input type="number" id="old-endurance" name="old-endurance" placeholder="15" value="15">
+            <input type="number" id="old_endurance" name="old-endurance" placeholder="15000" value="15000">
           </div>
           <div class="content field">
             <label class="left floated" for="old-consumption">Energieverbrauch in 1.000 h <span class="ml-xxs meta">laut Hersteller</span></label>
             <div class="right floated meta">kWh</div>
-            <input type="number" id="old-consumption" name="old-consumption" placeholder="68" value="68">
+            <input type="number" id="old_consumption" name="old-consumption" placeholder="68" value="68">
           </div>
         </div>
         <!-- /old lamp -->
@@ -92,23 +92,23 @@
           </div>
           <div class="content field">
             <div class="right floated meta">Watt</div>
-            <label for="new-power">Leistung</label>
-            <input type="number" id="new-power" name="new-power" placehnewer="25" value="25">
+            <label for="new_power">Leistung</label>
+            <input type="number" id="new_power" name="new_power" placehnewer="25" value="25">
           </div>
           <div class="content field">
             <div class="right floated meta">Euro</div>
-            <label for="new-initialcost">Anschaffungskosten</label>
-            <input type="number" id="new-initialcost" name="new-initialcost" placehnewer="31.10" value="31.10">
+            <label for="new_initialcost">Anschaffungskosten</label>
+            <input type="number" id="new_initialcost" name="new_initialcost" placehnewer="31.10" value="31.10">
           </div>
           <div class="content field">
-            <div class="right floated meta">&times; 1000 Stunden</div>
-            <label for="new-endurance">Lebensdauer</label>
-            <input type="number" id="new-endurance" name="new-endurance" placeholder="40" value="40">
+            <div class="right floated meta">Stunden</div>
+            <label for="new_endurance">Lebensdauer</label>
+            <input type="number" id="new_endurance" name="new_endurance" placeholder="40000" value="40000">
           </div>
           <div class="content field">
-            <label class="left floated" for="new-consumption">Energieverbrauch in 1.000 h <span class="ml-xxs meta">laut Hersteller</span></label>
+            <label class="left floated" for="new_consumption">Energieverbrauch in 1.000 h <span class="ml-xxs meta">laut Hersteller</span></label>
             <div class="right floated meta">kWh</div>
-            <input type="number" id="new-consumption" name="new-consumption" placeholder="25" value="25">
+            <input type="number" id="new_consumption" name="new_consumption" placeholder="25" value="25">
           </div>
         </div>
         <!-- /new lamp -->
@@ -128,31 +128,35 @@
         <tbody>
           <tr>
             <td>Energieverbrauch in 1000h</td>
-            <td class="negative">68 kWh</td>
-            <td class="positive"><span id="1000h-energy-old">25</span> kWh</td>
+            <td class="negative"><span id="old_thousand_h_energy">68</span> kWh</td>
+            <td class="positive"><span id="new_thousand_h_energy">25</span> kWh</td>
           </tr>
           <tr>
             <td>Täglicher Stromverbrauch</td>
-            <td class="negative"><span id="daily-energy">11,424</span> kWh</td>
-            <td class="positive"><span id="daily-energy-old">4,2</span> kWh</td>
+            <td class="negative"><span id="old_daily_energy">11,424</span> kWh</td>
+            <td class="positive"><span id="new_daily_energy">4,2</span> kWh</td>
           </tr>
           <tr>
             <td>Tägliche Energiekosten</td>
-            <td class="negative"><span id="daily-cost">3,19872</span> Euro</td>
-            <td class="positive"><span id="daily-cost-old">1,176</span> Euro</td>
+            <td class="negative"><span id="old_daily_cost">3,19872</span> Euro</td>
+            <td class="positive"><span id="new_daily_cost">1,176</span> Euro</td>
           </tr>
           <tr>
             <td>Jährliche Energiekosten</td>
-            <td class="negative"><span id="annual-cost">812,47488</span> Euro</td>
-            <td class="positive"><span id="annual-cost-old">298,704</span> Euro</td>
+            <td class="negative"><span id="old_annual_cost">812,47488</span> Euro</td>
+            <td class="positive"><span id="new_annual_cost">298,704</span> Euro</td>
           </tr>
         </tbody>
       </table>
+      <div class="ui container">
+        <h1 class="header">Jährliche Ersparnis</h1>
+        <span id="yearly_savings" class="green content"></span> Euro/Jahr
+      </div>
     </div>
 
     <div class="ui segment mt-s">
       <h3 class="ui header">Ihre Ersparnis</h3>
-      <p>Ihre Ersparnis während der Lebensdauer der LED Lampe von <span id="lifetime">18,26</span> Jahren beträgt <span id="lifetime-saving">9.383,94</span> Euro bei 6 Stunde(n) Brenndauer im täglichen Durchschnitt. Sie Investieren <span id="invest-led">870,80</span> Euro in LED Technik statt <span id="invest-old">134,40</span> Euro für <span>74,67</span> alte Leuchtmittel im Vergleich zur LED Laufzeit.</p>
+      <p>Ihre Ersparnis während der Lebensdauer der LED Lampe von <span id="lifetime">18,26</span> Jahren beträgt <span id="lifetime_saving">9.383,94</span> Euro bei 6 Stunde(n) Brenndauer im täglichen Durchschnitt. Sie Investieren <span id="invest_led">870,80</span> Euro in LED Technik statt <span id="invest_old">134,40</span> Euro für <span>74,67</span> alte Leuchtmittel im Vergleich zur LED Laufzeit.</p>
      <p>Sie sparen <span>202,27</span> Euro Cent pro Tag, was <span>513,77</span>Euro im Jahr bei <span>254</span> Arbeitstagen entspricht.</p>
      <p>Nach <span>1,69</span> Jahren hat sich Ihre Investition in die neue LED Technik amortisiert.</p>
   </div>
