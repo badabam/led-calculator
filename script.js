@@ -24,16 +24,37 @@
     'yearly_savings',
     'lifetime',
     'lifetime_saving',
+    'result_time',
     'invest_led',
     'invest_old'
   ];
 
-  var e = {};
+  var e = {}, textFields = [];
   elementIds.forEach(function (id) {
     var el      = $('#' + id),
         isInput = el[0].localName === 'input';
 
-    e[id] = isInput ? el.val.bind(el) : el.text.bind(el);
+    if (isInput) {
+      e[id] = function setVal(val) {
+        if (val) {
+          val = parseFloat(val.split(".").join(","));
+          return el.val(val);
+        } else {
+          return el.val().toString().split(",").join(".");
+        }
+      };
+    } else {
+      e[id] = function setText(text) {
+        if (text) {
+          console.log("text", text);
+          text = text.toString().split(".").join(",");
+          return el.text(text);
+        } else {
+          return el.text().toString().split(",").join(".");
+        }
+      };
+      textFields.push(e[id]);
+    }
   });
 
   $(document).on('change keyup blur', 'input', calculate);
@@ -52,9 +73,21 @@
     e.new_annual_cost(e.new_daily_cost() * e.days());
 
     e.yearly_savings(e.old_annual_cost() - e.new_annual_cost());
-    elementIds.forEach(function(id) {
-      var func = e[id];
-      func(Math.round(func() * 100)/100);
+
+    e.lifetime(e.new_endurance()/(e.time() * 365));
+    e.lifetime_saving(e.lifetime()*e.yearly_savings());
+
+    e.result_time(e.time());
+    e.invest_led(e.old_initialcost() * e.amount());
+
+    textFields.forEach(function(func) {
+      var rounded = ( Math.round(func() * 100)/100 ).toString().split('.'),
+          integer = rounded[0],
+          decimal = rounded[1] || "00";
+
+      decimal = decimal.length === 2 ? decimal : decimal + "0";
+      console.log("num", integer + "," + decimal);
+      func(integer + "," + decimal);
     });
   }
 
