@@ -6,13 +6,8 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "less": "lessc less/styles.less dist/styles.css",
-    "minify": "cleancss -o dist/styles.min.css dist/styles.css",
-    "watch": "npm-watch",
+    "minify": "cleancss -o styles.min.css styles.css",
     "clean": "rimraf 'dist'"
-  },
-  "watch": {
-    "less": "{less}/*.less"
   },
   "author": "Jeremias Erbs <jerry@badabam.de> (http://www.badabam.de/)",
   "license": "UNLICENSED",
@@ -23,7 +18,6 @@
   },
   "devDependencies": {
     "clean-css": "^3.4.20",
-    "npm-watch": "^0.1.6",
     "rimraf": "^2.5.4"
   },
   "repository": {

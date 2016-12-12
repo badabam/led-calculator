@@ -26,7 +26,8 @@
     'lifetime_saving',
     'result_time',
     'invest_led',
-    'invest_old'
+    'invest_old',
+    'num_old'
   ];
 
   var e = {}, textFields = [];
@@ -37,20 +38,20 @@
     if (isInput) {
       e[id] = function setVal(val) {
         if (val) {
-          val = parseFloat(val.split(".").join(","));
+          val = parseFloat(val.split('.').join(','));
           return el.val(val);
         } else {
-          return el.val().toString().split(",").join(".");
+          return el.val().toString().split(',').join('.');
         }
       };
     } else {
       e[id] = function setText(text) {
         if (text) {
-          console.log("text", text);
-          text = text.toString().split(".").join(",");
+          console.log('text', text);
+          text = text.toString().split('.').join(',');
           return el.text(text);
         } else {
-          return el.text().toString().split(",").join(".");
+          return el.text().toString().split(',').join('.');
         }
       };
       textFields.push(e[id]);
@@ -83,11 +84,11 @@
     textFields.forEach(function(func) {
       var rounded = ( Math.round(func() * 100)/100 ).toString().split('.'),
           integer = rounded[0],
-          decimal = rounded[1] || "00";
+          decimal = rounded[1] || '00';
 
-      decimal = decimal.length === 2 ? decimal : decimal + "0";
-      console.log("num", integer + "," + decimal);
-      func(integer + "," + decimal);
+      decimal = decimal.length === 2 ? decimal : decimal + '0';
+      console.log('num', integer + ',' + decimal);
+      func(integer + ',' + decimal);
     });
   }
 
