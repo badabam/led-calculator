@@ -30,10 +30,13 @@
     'num_old'
   ];
 
-  var e = {}, textFields = [];
+  var e = {}, elements = [], textFields = [];
+
   elementIds.forEach(function (id) {
     var el      = $('#' + id),
         isInput = el[0].localName === 'input';
+
+    elements.push(el);
 
     if (isInput) {
       e[id] = function setVal(val) {
@@ -58,12 +61,23 @@
     }
   });
 
-  $(document).on('change keyup blur', 'input', calculate);
+  $('input').on('change keyup blur',  greyOutInfos);
+  $('.primary.button').on('click', calculate)
   calculate();
 
   // $('.ui.sticky').sticky();
 
+  function greyOutInfos (event) {
+    $('.alert').removeClass('hidden');
+    elements.forEach(function (el, i) {
+      if (el !== $(event.target)) {
+        el.addClass('grey');
+      }
+    })
+  }
+
   function calculate () {
+    $('.alert').addClass('hidden');
     e.old_daily_energy(e.old_thousand_h_energy() * e.amount() * e.time() / 1000);
     e.new_daily_energy(e.new_thousand_h_energy() * e.amount() * e.time() / 1000);
 
