@@ -35,16 +35,14 @@
   ];
 
   var e           = {},
-      elements    = [],
-      textFields  = [],
+      spanFuncs   = [],
+      spans       = [],
       store       = {},
       startValues = {};
 
   elementIds.forEach(function (id) {
     var el      = $('#' + id),
         isInput = el[0].localName === 'input';
-
-    elements.push(el);
 
     if (isInput) {
       e[id] = function setVal(val) {
@@ -64,11 +62,12 @@
           return el.text().toString().split(',').join('.');
         }
       };
-      textFields.push(e[id]);
+      spanFuncs.push(e[id]);
+      spans.push(el)
     }
   });
 
-  $('input').on('change keyup blur',  greyOutInfos);
+  $('input').on('change keyup blur', onChange);
 
   $('[data-update]').on('click', function () {
     showLoading();
@@ -90,6 +89,19 @@
   // FUNCTION DEFINITIONS
   // *********************
 
+  function onChange(event) {
+    var button = $('[data-update]'),
+        target = $(event.target),
+        hasEmptyValues = $('input').toArray().some(function (el) { return !el.value });
+
+    console.log("target", target);
+    greyOutInfos();
+    target.toggleClass('invalid', !target.val());
+    button.prop('disabled', hasEmptyValues);
+    button.toggleClass('disabled', hasEmptyValues);
+    hasEmptyValues ? hideAlert() : showAlert();
+  }
+
   function hideAlert () {
     $('.alert').addClass('no-display');
   }
@@ -108,16 +120,14 @@
 
   function greyOutInfos (event) {
     showAlert();
-    elements.forEach(function (el) {
-      if (el !== $(event.target)) {
-        el.addClass('grey');
-        el.removeClass('fade');
-      }
+    spans.forEach(function (el) {
+      el.addClass('grey');
+      el.removeClass('fade');
     });
   }
 
   function resetOpacity() {
-    elements.forEach(function (el) {
+    spans.forEach(function (el) {
       el.removeClass('grey');
       el.addClass('fade');
     });
@@ -172,7 +182,7 @@
     e.years_to_amortise( e.amount() * e.new_initialcost()/e.euro_a_year());
     e.total_kwh( (e.old_daily_energy() - e.new_daily_energy()) * e.days() * e.years_to_amortise() );
 
-    textFields.forEach(function(func) {
+    spanFuncs.forEach(function(func) {
       var rounded = ( Math.round(func() * 100)/100 ).toString().split('.'),
           integer = rounded[0],
           decimal = rounded[1] || '00';

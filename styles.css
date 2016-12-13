@@ -18,6 +18,11 @@ body {
   padding: 0 4px;
 }
 
+input.invalid {
+  border-color: red !important;
+  background-color: rgba(200, 50, 50, 0.05) !important;
+}
+
 /* header */
 @keyframes heading {
   0% {
