@@ -28,7 +28,12 @@
     'invest_led',
     'invest_old',
     'num_old',
-    'cent_a_day'
+    'cent_a_day',
+    'euro_a_year',
+    'result_days',
+    'years_to_amortise',
+    'lifetime_copy',
+    'total_kwh'
   ];
 
   var e          = {},
@@ -53,7 +58,6 @@
     } else {
       e[id] = function setText(text) {
         if (text) {
-          console.log('text', text);
           text = text.toString().split('.').join(',');
           return el.text(text);
         } else {
@@ -104,12 +108,16 @@
 
     e.yearly_savings(e.old_annual_cost() - e.new_annual_cost());
 
-    e.lifetime(e.new_endurance()/(e.time() * 365));
-    e.lifetime_saving(e.lifetime()*e.yearly_savings());
+    e.lifetime( e.new_endurance() / (e.time() * 365) );
+    e.lifetime_saving(e.lifetime() * e.yearly_savings());
 
     e.result_time(e.time());
-    e.invest_led(e._new_inialcost() * e.amount());
-    e.cent_a_day( (e.old_daily_cost() - e.new_daily_cost() * 100) );
+    e.invest_led(e.new_initialcost() * e.amount());
+    e.cent_a_day( (e.old_daily_cost() - e.new_daily_cost()) * 100 );
+    e.euro_a_year( (e.cent_a_day() * e.days()) / 100 );
+    e.result_days( e.days() );
+    e.years_to_amortise( e.amount() * e.new_initialcost()/e.euro_a_year());
+    e.total_kwh( (e.old_daily_energy() - e.new_daily_energy()) * e.days() * e.years_to_amortise() );
 
     textFields.forEach(function(func) {
       var rounded = ( Math.round(func() * 100)/100 ).toString().split('.'),
@@ -117,7 +125,6 @@
           decimal = rounded[1] || '00';
 
       decimal = decimal.length === 2 ? decimal : decimal + '0';
-      console.log('num', integer + ',' + decimal);
       func(integer + ',' + decimal);
     });
   }

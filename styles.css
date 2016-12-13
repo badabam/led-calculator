@@ -12,7 +12,7 @@ body {
 .savings span {
   display: inline-block;
   border: 1px solid #ccc;
-  padding: 1px 4px;
+  padding: 0 6px;
   background-color: #eee;
   border-radius: 7px;
 }
@@ -127,4 +127,16 @@ body > header .main-heading {
   text-shadow: 0 -1px 0px rgba(0,0,0,0.5);
   top: 0;
   z-index: 1000;
+}
+
+.year_savings {
+  border: 2px solid #8ace8a;
+  padding: 20px;
+  font-size: 1.4em;
+}
+
+.year_savings span {
+  font-weight: 1.8em;
+  font-weight: bold;
+
 }
