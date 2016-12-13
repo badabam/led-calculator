@@ -8,11 +8,9 @@
     'old_power',
     'old_initialcost',
     'old_endurance',
-    // 'old_consumption',
     'new_power',
     'new_initialcost',
     'new_endurance',
-    // 'new_consumption',
     'old_thousand_h_energy',
     'new_thousand_h_energy',
     'old_daily_energy',
@@ -39,7 +37,8 @@
   var e           = {},
       elements    = [],
       textFields  = [],
-      savedValues = {};
+      store       = {},
+      startValues = {};
 
   elementIds.forEach(function (id) {
     var el      = $('#' + id),
@@ -72,6 +71,7 @@
   $('input').on('change keyup blur',  greyOutInfos);
 
   $('[data-update]').on('click', function () {
+    showLoading();
     hideAlert();
     resetOpacity();
     setTimeout(update, 250);
@@ -79,9 +79,16 @@
 
   $('[data-reset]').on('click', reset);
 
+  $(".print.icon").on("click", function () {
+    window.print();
+  })
+
   update();
 
-  // $('.ui.sticky').sticky();
+
+  // *********************
+  // FUNCTION DEFINITIONS
+  // *********************
 
   function hideAlert () {
     $('.alert').addClass('no-display');
@@ -89,6 +96,14 @@
 
   function showAlert () {
     $('.alert').removeClass('no-display');
+  }
+
+  function showLoading () {
+    $('[data-update]').addClass('loading');
+  }
+
+  function hideLoading () {
+    $('[data-update]').removeClass('loading');
   }
 
   function greyOutInfos (event) {
@@ -109,8 +124,9 @@
   }
 
   function update () {
+    hideLoading();
     calculate();
-    save();
+    store = save();
   }
 
   function reset () {
@@ -120,15 +136,16 @@
   }
 
   function save () {
-    savedValues = {};
+    var result = {};
     elementIds.forEach(function (id) {
-      savedValues[id] = e[id]();
+      result[id] = e[id]();
     });
+    return result;
   }
 
   function load () {
-    Object.keys(savedValues).forEach(function (id) {
-      e[id](savedValues[id]);
+    Object.keys(store).forEach(function (id) {
+      e[id](store[id]);
     });
   }
 
