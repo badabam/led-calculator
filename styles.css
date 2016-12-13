@@ -108,6 +108,14 @@ body > header .main-heading {
   }
 }
 
+.calc-link {
+  border-bottom: 1px solid transparent;
+  color: white !important;
+}
+.calc-link:hover {
+  border-bottom-color: white;
+}
+
 .no-display {
   display: none !important;
 }

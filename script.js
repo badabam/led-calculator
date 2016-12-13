@@ -36,9 +36,10 @@
     'total_kwh'
   ];
 
-  var e          = {},
-      elements   = [],
-      textFields = [];
+  var e           = {},
+      elements    = [],
+      textFields  = [],
+      savedValues = {};
 
   elementIds.forEach(function (id) {
     var el      = $('#' + id),
@@ -69,17 +70,29 @@
   });
 
   $('input').on('change keyup blur',  greyOutInfos);
-  $('.primary.button').on('click', function () {
-    $('.alert').addClass('no-display');
+
+  $('[data-update]').on('click', function () {
+    hideAlert();
     resetOpacity();
-    setTimeout(calculate, 250);
+    setTimeout(update, 250);
   });
-  calculate();
+
+  $('[data-reset]').on('click', reset);
+
+  update();
 
   // $('.ui.sticky').sticky();
 
-  function greyOutInfos (event) {
+  function hideAlert () {
+    $('.alert').addClass('no-display');
+  }
+
+  function showAlert () {
     $('.alert').removeClass('no-display');
+  }
+
+  function greyOutInfos (event) {
+    showAlert();
     elements.forEach(function (el) {
       if (el !== $(event.target)) {
         el.addClass('grey');
@@ -95,8 +108,31 @@
     });
   }
 
-  function calculate () {
+  function update () {
+    calculate();
+    save();
+  }
 
+  function reset () {
+    load();
+    resetOpacity();
+    hideAlert();
+  }
+
+  function save () {
+    savedValues = {};
+    elementIds.forEach(function (id) {
+      savedValues[id] = e[id]();
+    });
+  }
+
+  function load () {
+    Object.keys(savedValues).forEach(function (id) {
+      e[id](savedValues[id]);
+    });
+  }
+
+  function calculate () {
     e.old_daily_energy(e.old_thousand_h_energy() * e.amount() * e.time() / 1000);
     e.new_daily_energy(e.new_thousand_h_energy() * e.amount() * e.time() / 1000);
 

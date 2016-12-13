@@ -10,7 +10,8 @@
 </head>
 <body>
   <div class="alert no-display">
-    Werte haben sich geändert, bitte neu berechnen!
+    <a href="javascript: void(0)" data-update class="calc-link">Jetzt berechnen</a>
+    <small>(<a href="javascript: void(0)" class="calc-link" data-reset>Abbrechen)</a></small>
   </div>
   <header>
     <div class="container">
@@ -52,7 +53,7 @@
             <input type="number" id="powerprice" name="powerprice" placeholder="28" value="28">
           </div>
           <div class="ui sticky content field">
-            <div class="ui w100 pv-s primary button">
+            <div class="ui w100 pv-s primary button" data-update>
               <i class="calculator icon"></i>
               Jetzt berechnen
             </div>
