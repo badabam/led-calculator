@@ -74,10 +74,41 @@ body > header .main-heading {
 }
 
 .grey {
-  color: #ccc !important;
+  opacity: 0.5 !important;
 }
 
-.hidden {
+.empty-content-field {
+  height: 180px;
+  }
+  @media screen and (max-width: 767px) {
+    .empty-content-field {
+      height: 0;
+    }
+  }
+
+
+.fade {
+  animation: fadeInOut 0.5s;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.no-display {
   display: none !important;
 }
 

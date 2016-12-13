@@ -27,10 +27,13 @@
     'result_time',
     'invest_led',
     'invest_old',
-    'num_old'
+    'num_old',
+    'cent_a_day'
   ];
 
-  var e = {}, elements = [], textFields = [];
+  var e          = {},
+      elements   = [],
+      textFields = [];
 
   elementIds.forEach(function (id) {
     var el      = $('#' + id),
@@ -62,22 +65,34 @@
   });
 
   $('input').on('change keyup blur',  greyOutInfos);
-  $('.primary.button').on('click', calculate)
+  $('.primary.button').on('click', function () {
+    $('.alert').addClass('no-display');
+    resetOpacity();
+    setTimeout(calculate, 250);
+  });
   calculate();
 
   // $('.ui.sticky').sticky();
 
   function greyOutInfos (event) {
-    $('.alert').removeClass('hidden');
-    elements.forEach(function (el, i) {
+    $('.alert').removeClass('no-display');
+    elements.forEach(function (el) {
       if (el !== $(event.target)) {
         el.addClass('grey');
+        el.removeClass('fade');
       }
-    })
+    });
+  }
+
+  function resetOpacity() {
+    elements.forEach(function (el) {
+      el.removeClass('grey');
+      el.addClass('fade');
+    });
   }
 
   function calculate () {
-    $('.alert').addClass('hidden');
+
     e.old_daily_energy(e.old_thousand_h_energy() * e.amount() * e.time() / 1000);
     e.new_daily_energy(e.new_thousand_h_energy() * e.amount() * e.time() / 1000);
 
@@ -93,7 +108,8 @@
     e.lifetime_saving(e.lifetime()*e.yearly_savings());
 
     e.result_time(e.time());
-    e.invest_led(e.old_initialcost() * e.amount());
+    e.invest_led(e._new_inialcost() * e.amount());
+    e.cent_a_day( (e.old_daily_cost() - e.new_daily_cost() * 100) );
 
     textFields.forEach(function(func) {
       var rounded = ( Math.round(func() * 100)/100 ).toString().split('.'),
