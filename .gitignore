@@ -1,5 +1,4 @@
 semantic/
 node_modules/
 .idea/
-*.min.*
 .DS_Store
