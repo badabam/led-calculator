@@ -236,7 +236,12 @@ body > header .main-heading {
     height: 2.7cm;
   }
 
+  .mt-xl {
+    margin-top: 0.2cm !important;
+  }
+
   .button,
+  .alert,
   .sticky.content.field,
   .print.icon {
     display: none !important;
