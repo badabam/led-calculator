@@ -94,7 +94,17 @@ body > header .main-heading {
     .empty-content-field {
       height: 0;
     }
-  }
+}
+
+@media screen and (max-width: 767px) {
+  .hide-mobile { display: none; }
+  .show-mobile { display: block; }
+}
+
+@media screen and (min-width: 768px) {
+  .hide-mobile { display: block; }
+  .show-mobile { display: none; }
+}
 
 
 .fade {
