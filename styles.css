@@ -63,7 +63,7 @@ body > header .logo {
 body > header .main-heading {
   animation: 1.5s 1s heading ease-out both;
   color: white;
-  font-size: 4.8vw;
+  font-size: 3.7vw;
   margin: 0 0 0 40px;
   }
   @media screen and (max-width: 450px) {
