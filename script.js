@@ -63,7 +63,7 @@
         }
       };
       spanFuncs.push(e[id]);
-      spans.push(el)
+      spans.push(el);
     }
   });
 
@@ -80,7 +80,7 @@
 
   $(".print.icon").on("click", function () {
     window.print();
-  })
+  });
 
   update();
 
@@ -92,9 +92,8 @@
   function onChange(event) {
     var button = $('[data-update]'),
         target = $(event.target),
-        hasEmptyValues = $('input').toArray().some(function (el) { return !el.value });
+        hasEmptyValues = $('input').toArray().some(function (el) { return !el.value; });
 
-    console.log("target", target);
     greyOutInfos();
     target.toggleClass('invalid', !target.val());
     button.prop('disabled', hasEmptyValues);
@@ -160,6 +159,8 @@
   }
 
   function calculate () {
+    e.old_thousand_h_energy(e.old_power());
+    e.new_thousand_h_energy(e.new_power());
     e.old_daily_energy(e.old_thousand_h_energy() * e.amount() * e.time() / 1000);
     e.new_daily_energy(e.new_thousand_h_energy() * e.amount() * e.time() / 1000);
 
