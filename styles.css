@@ -228,8 +228,16 @@ body > header .main-heading {
     border: 1px solid #666 !important;
   }
 
+  .content:first-child {
+    height: 2cm;
+  }
+
+  .content.field {
+    height: 2.7cm;
+  }
+
   .button,
-  .content.field:last-child,
+  .sticky.content.field,
   .print.icon {
     display: none !important;
   }
