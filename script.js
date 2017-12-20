@@ -1,4 +1,40 @@
-// $(function () {
+$(function () {
+
+  if (hasJakobi()) {
+    var logo = document.getElementById('logo');
+    logo.classList.add('hidden');
+    logo.src = 'img/logo_jakobi.svg';
+    logo.style.width = '26vw';
+    logo.style.maxWidth = '370px';
+    logo.style.minWidth = '200px';
+    logo.style.padding = '1rem';
+    logo.style.height = 'auto';
+    logo.style.backgroundColor = 'white';
+
+    var header = document.getElementById('header');
+    header.style.backgroundColor = 'white';
+
+    var heading = document.querySelector('.main-heading');
+    heading.style.color = '#1678c2';
+  }
+
+  showHeader(); // always show header
+
+  function hasJakobi () {
+    return location.search.indexOf('jakobi') !== -1 ||
+    location.hash.indexOf('jakobi') !== -1;
+  }
+
+  function showHeader() {
+    var header = document.getElementById('header');
+    var logo = document.getElementById('logo');
+
+    setTimeout(function() {
+      header.classList.remove('hidden');
+      logo.classList.remove('hidden');
+    }, 200);
+  }
+
 
   var elementIds = [
     'amount',
@@ -193,4 +229,4 @@
     });
   }
 
-// });
+});

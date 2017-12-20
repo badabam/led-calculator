@@ -13,10 +13,10 @@
     <a href="javascript: void(0)" data-update class="calc-link">Jetzt berechnen</a>
     <small>(<a href="javascript: void(0)" class="calc-link" data-reset>Abbrechen)</a></small>
   </div>
-  <header>
+  <header id="header" class="hidden">
     <div class="container">
       <a href="http://www.bessere-technik.de">
-        <img class="logo" src="img/logo.png" alt="Bessere Technik" title="Bessere Technik">
+        <img id="logo" class="logo" src="img/logo.png" alt="Bessere Technik" title="Bessere Technik">
       </a>
       <h1 class="main-heading">LED Strom-Spar-Rechner</h1>
     </div>
@@ -124,8 +124,6 @@
       <!-- /cards -->
     </form>
 
-    <div class="page-break"></div>
-
     <div class="ui segment mt-s">
       <h3 class="ui header">Direktvergleich</h3>
       <table class="ui celled fixed unstackable table">
@@ -171,8 +169,7 @@
       <p>Sie Investieren <span id="invest_led" data-after=" Euro">870,80</span> in LED Technik statt <span id="invest_old" data-after=" Euro">134,40</span> für <span id="num_old">74,67</span> alte Leuchtmittel im Vergleich zur LED Laufzeit.</p>
      <p>Sie sparen <span id="cent_a_day" data-after=" Cent">202,27</span> pro Tag, was <span id="euro_a_year" data-after=" Euro">513,77</span>  im Jahr bei <span id="result_days" data-after=" Arbeitstagen">254</span> entspricht.</p>
      <p>Nach <span id="years_to_amortise" data-after=" Jahren">1,69</span> hat sich Ihre Investition in die neue LED Technik amortisiert. Sie haben in den <span id="lifetime_copy" data-after=" Jahren">18,26</span> ungefähr <span id="total_kwh" data-after=" kWh"></span> Energie eingespart.</p>
-  </div>
-
+    </div>
   </main>
 
   <script src="jquery.min.js"></script>

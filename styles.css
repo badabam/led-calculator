@@ -23,6 +23,10 @@ input.invalid {
   background-color: rgba(200, 50, 50, 0.05) !important;
 }
 
+.hidden {
+  visibility: hidden !important;
+}
+
 /* header */
 @keyframes heading {
   0% {
@@ -212,8 +216,21 @@ body > header .main-heading {
 
 @media print {
 
+
+  @page {
+    size: A4;
+  }
+
+  @page :left {
+    margin-left: 2cm;
+  }
+
+  @page :right {
+    margin-left: 1cm;
+  }
+
   body {
-    margin: 0cm 2cm 2cm 2cm;
+    margin: 0 2cm 0 1cm;
   }
 
   * {
@@ -221,11 +238,52 @@ body > header .main-heading {
     background: none !important;
     text-shadow: none !important;
     box-shadow: none !important;
-    border-color: #666 !important;
+    border-color: #bbb !important;
+  }
+
+  body {
+    font-size: 80%;
+  }
+
+  body > header .container {
+    padding: 0.5cm;
+    height: 3cm;
+  }
+
+  body > header .main-heading {
+    font-size: 1.3rem;
+  }
+
+  h1.header {
+    font-size: 1.1rem;
+    display: inline-block;
+    margin: 0;
+    margin-right: 1em;
+  }
+
+  .ui.card>.content, .ui.cards>.card>.content{
+    padding: 0.5em;
+    height: auto;
+    font-size: 0.9em;
+  }
+
+  .ui.form input:not([type]), .ui.form input[type=text], .ui.form input[type=email], .ui.form input[type=search], .ui.form input[type=password], .ui.form input[type=date], .ui.form input[type=datetime-local], .ui.form input[type=tel], .ui.form input[type=time], .ui.form input[type=file], .ui.form input[type=url], .ui.form input[type=number] {
+    border: 0;
+    padding: 0;
+  }
+
+  .ui.card>.content>.header, .ui.cards>.card>.content>.header {
+    color: #000 !important;
+  }
+
+  .year_savings {
+    border: 0;
+    background-color: #ccc;
+    padding: 10px;
   }
 
   .card {
-    border: 1px solid #666 !important;
+    border: 1px solid #bbb !important;
   }
 
   .content:first-child {
@@ -250,8 +308,5 @@ body > header .main-heading {
   .page-break {
     page-break-after: always;
   }
-
-
 }
-
 
